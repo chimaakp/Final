@@ -26,5 +26,14 @@ public class Rate_Test {
 		
 		assert(1==1);
 	}
-
+	@Test
+	public void test_getdInterestRate() {
+		
+		
+	}
+	@Test
+	public void test_RateException(){
+		
+	}
+	
 }

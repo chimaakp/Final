@@ -18,20 +18,12 @@ public class RateBLL extends RateDAL{
 	{
 		ArrayList<RateDomainModel> gr = new ArrayList<RateDomainModel>();
 		gr = RateDAL.getAllRates();
-		
-		if (GivenCreditScore <= gr.getiMinCreditScore()){
-			
+		for( RateDomainModel radam: gr){
+		if (GivenCreditScore >= radam.getiMinCreditScore()){
+			double Rate = radam.getdInterestRate();
+		return Rate;
 		}
-		
-		
-		try{
-			tx = session.beginTransaction();
-			
-			
-		catch (HibernateException e) {
-			if ( gr.isEmpty());
-			e.printStackTrace();
-				
+		 				
 				
 		}
 		

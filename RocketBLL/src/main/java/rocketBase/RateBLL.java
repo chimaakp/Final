@@ -1,13 +1,39 @@
 package rocketBase;
 
-import org.apache.poi.ss.formula.functions.*;
+import java.util.ArrayList;
 
-public class RateBLL {
+import org.apache.poi.ss.formula.functions.*;
+import org.hibernate.HibernateException;
+
+import rocketDomain.RateDomainModel;
+
+
+
+
+public class RateBLL extends RateDAL{
 
 	private static RateDAL _RateDAL = new RateDAL();
 	
 	static double getRate(int GivenCreditScore) 
 	{
+		ArrayList<RateDomainModel> gr = new ArrayList<RateDomainModel>();
+		gr = RateDAL.getAllRates();
+		
+		try{
+			tx = session.beginTransaction();
+			
+			
+		catch (HibernateException e) {
+			if ( gr.isEmpty());
+			e.printStackTrace();
+				
+				
+		}
+		
+			
+		
+		}
+		
 		//TODO - RocketBLL RateBLL.getRate - make sure you throw any exception
 		
 		//		Call RateDAL.getAllRates... this returns an array of rates
@@ -30,7 +56,7 @@ public class RateBLL {
 	//		https://poi.apache.org/apidocs/org/apache/poi/ss/formula/functions/FinanceLib.html
 	
 	public static double getPayment(double r, double n, double p, double f, boolean t)
-	{		
+	{	
 		return FinanceLib.pmt(r, n, p, f, t);
 	}
 }

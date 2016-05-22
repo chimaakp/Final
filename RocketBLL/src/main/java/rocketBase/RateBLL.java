@@ -19,6 +19,11 @@ public class RateBLL extends RateDAL{
 		ArrayList<RateDomainModel> gr = new ArrayList<RateDomainModel>();
 		gr = RateDAL.getAllRates();
 		
+		if (GivenCreditScore <= gr.getiMinCreditScore()){
+			
+		}
+		
+		
 		try{
 			tx = session.beginTransaction();
 			

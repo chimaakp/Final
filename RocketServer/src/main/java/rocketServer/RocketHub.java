@@ -56,4 +56,3 @@ public class RocketHub extends Hub {
 			sendToAll(lq);
 		}
 	}
-}

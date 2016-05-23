@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import exceptions.RateException;
 import rocketBase.RateBLL;
 public class rate_test {
 
@@ -15,7 +16,7 @@ public class rate_test {
 	//		credit score
 	@Test
 	public void rate_test(){
-		double t1;
+		double t1 = 0;
 		try{
 			
 		
@@ -27,4 +28,13 @@ public class rate_test {
 		assertTrue( t1 == 4);
 	}
 
+	@Test
+	public void rate_test2() throws RateException{
+		double t2 = 0;
+		try{
+			t2 = RateBLL.getRate(900);}
+		catch(Exception RateException){
+			RateException.printStackTrace();
+		}
+	}
 }

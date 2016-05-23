@@ -1,5 +1,7 @@
 package rocketServer;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.IOException;
 
 import netgame.common.Hub;
@@ -23,12 +25,23 @@ public class RocketHub extends Hub {
 			resetOutput();
 			
 			LoanRequest lq = (LoanRequest) message;
+			double serverRate = 0;
 			
-			int serverCS = lq.getiCreditScore();
+			try{
+				
+			int serverCS;
+			serverCS = lq.getiCreditScore();
 			
-			double serverRate = RateBLL.getRate(serverCS) throws RateException;
+			serverRate = RateBLL.getRate(serverCS);
+			}
+			catch(Exception RateException){
+				RateException.printStackTrace();
+				
+			}
+			continue;
+		}
 			
-			//	TODO - RocketHub.messageReceived
+		//	TODO - RocketHub.messageReceived
 
 			//	You will have to:
 			//	Determine the rate with the given credit score (call RateBLL.getRate)

@@ -30,6 +30,7 @@ public class RateBLL extends RateDAL{
 			
 		}
 
+}
 		
 		//TODO - RocketBLL RateBLL.getRate - make sure you throw any exception
 		

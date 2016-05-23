@@ -36,9 +36,11 @@ public class RocketHub extends Hub {
 			}
 			catch(Exception RateException){
 				RateException.printStackTrace();
+				break;
 				
 			}
-			continue;
+			double ServerPMT = RateBLL.getPayment(serverRate, lq.getiTerm(), lq.getdAmount(), 0,true);
+			lq.setdPayment(ServerPMT);
 		}
 			
 		//	TODO - RocketHub.messageReceived

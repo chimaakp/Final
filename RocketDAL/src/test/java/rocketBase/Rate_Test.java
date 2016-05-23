@@ -24,7 +24,6 @@ public class Rate_Test {
 		System.out.println ("Rates size: " + rates.size());
 		assert(rates.size() > 0);
 		
-		assert(1==1);
 	}
 	@Test
 	public void test_getdInterestRate() {

@@ -24,6 +24,10 @@ public class RocketHub extends Hub {
 			
 			LoanRequest lq = (LoanRequest) message;
 			
+			int serverCS = lq.getiCreditScore();
+			
+			double serverRate = RateBLL.getRate(serverCS) throws RateException;
+			
 			//	TODO - RocketHub.messageReceived
 
 			//	You will have to:

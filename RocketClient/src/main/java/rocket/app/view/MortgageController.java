@@ -84,11 +84,19 @@ public class MortgageController {
 	
 	public void HandleLoanRequestDetails(LoanRequest lRequest)
 	{
+		
 		//	TODO - RocketClient.HandleLoanRequestDetails
 		//			lRequest is an instance of LoanRequest.
 		//			after it's returned back from the server, the payment (dPayment)
 		//			should be calculated.
 		//			Display dPayment on the form, rounded to two decimal places
+		double PITI = lRequest.getIncome();
+		double PITII = lRequest.getIncome();
+		if (PITI >= PITII){
+			return PITII;
+		}
+		else;
+		return 
 		
 	}
 }

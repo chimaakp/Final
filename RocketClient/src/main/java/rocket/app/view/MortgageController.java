@@ -3,13 +3,43 @@ package rocket.app.view;
 import eNums.eAction;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import rocket.app.MainApp;
+import rocketBase.RateBLL;
 import rocketCode.Action;
 import rocketData.LoanRequest;
 
 public class MortgageController {
 
 	private MainApp mainApp;
+	@FXML
+	public Label Income;
+	@FXML
+	public Label Expense;
+	@FXML
+	public Label CreditScore;
+	@FXML
+	public Label Term;
+	@FXML
+	public Label HouseCost;
+	@FXML
+	private TextField txtIncome;
+	@FXML
+	private TextField txtExpense;
+	@FXML
+	private TextField txtCreditScore;
+	@FXML
+	private TextField txtHouseCost;
+	@FXML
+	private ComboBox <String> cmbTerm;
+	@FXML
+	private Button btnPayment;
+	@FXML
+	private Label Errors;
+	
 	
 	//	TODO - RocketClient.RocketMainController
 	
@@ -38,6 +68,11 @@ public class MortgageController {
 		
 		Action a = new Action(eAction.CalculatePayment);
 		LoanRequest lq = new LoanRequest();
+		lq.setdRate(RateBLL.getRate());
+		lq.setiTerm(iTerm);
+		lq.setdAmount(dAmount);
+		lq.setiCreditScore(iCreditScore);
+		lq.setiDownPayment(iDownPayment);
 		//	TODO - RocketClient.RocketMainController
 		//			set the loan request details...  rate, term, amount, credit score, downpayment
 		//			I've created you an instance of lq...  execute the setters in lq

@@ -68,11 +68,10 @@ public class MortgageController {
 		
 		Action a = new Action(eAction.CalculatePayment);
 		LoanRequest lq = new LoanRequest();
-		lq.setdRate(RateBLL.getRate());
-		lq.setiTerm(iTerm);
-		lq.setdAmount(dAmount);
-		lq.setiCreditScore(iCreditScore);
-		lq.setiDownPayment(iDownPayment);
+		lq.setiTerm(Integer.parseInt(cmbTerm.getValue()));
+		lq.setdAmount(Double.parseDouble(txtHouseCost.getText()));
+		lq.setiCreditScore(Integer.parseInt(txtCreditScore.getText()));
+		lq.setdRate(RateBLL.getRate(lq.getiCreditScore()));
 		//	TODO - RocketClient.RocketMainController
 		//			set the loan request details...  rate, term, amount, credit score, downpayment
 		//			I've created you an instance of lq...  execute the setters in lq

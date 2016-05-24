@@ -34,6 +34,8 @@ public class MortgageController {
 	@FXML
 	private TextField txtHouseCost;
 	@FXML
+	private TextField PMT;
+	@FXML
 	private ComboBox <String> cmbTerm;
 	@FXML
 	private Button btnPayment;
@@ -90,13 +92,16 @@ public class MortgageController {
 		//			after it's returned back from the server, the payment (dPayment)
 		//			should be calculated.
 		//			Display dPayment on the form, rounded to two decimal places
-		double PITI = lRequest.getIncome();
-		double PITII = lRequest.getIncome();
+		double PITI = (lRequest.getIncome()) *.28;
+		double PITII = (lRequest.getIncome()) * .36;
+		double PITIII;
 		if (PITI >= PITII){
-			return PITII;
+			PITIII = PITII;
 		}
-		else;
-		return 
+		else{
+		PITIII = PITI;}
 		
+		lRequest.setdPayment(PITIII);
+		PMT.setText(lRequest.getdPayment("x = %.2f\n");
 	}
 }
